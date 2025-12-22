@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A subway-themed personal portfolio website built with React, showcasing work experience, research, projects, and professional reports.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Profile**: Personal introduction and background information
+- **Projects**: Portfolio of completed projects with details and links
+- **Research**: Research interests and academic work
+- **Reports**: Technical reports and work documentation organized by semester/period
+- **Subway Navigation**: Custom themed navigation component for intuitive site exploration
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+src/
+├── components/
+│   ├── Card.jsx                 # Reusable card component
+│   ├── SectionRenderer.jsx      # Dynamic content renderer
+│   ├── SubwayNav.jsx            # Subway-themed navigation
+│   └── reports/                 # Report modules by period
+│       ├── fall-2023.js
+│       ├── summer-2023.js
+│       ├── summer-2024.js
+│       ├── summer-2025.js
+│       └── winter-2025.js
+├── pages/
+│   ├── Profile.jsx
+│   ├── Projects.jsx
+│   ├── Reports.jsx
+│   ├── Research.jsx
+│   └── WorkReportPage.jsx
+├── App.jsx                      # Main application component
+├── App.css                      # Application styles
+└── index.js                     # Entry point
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository:
+```bash
+git clone https://github.com/NStarkman/portfolio-website.git
+cd personal_site
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The site will open at `http://localhost:3000`
 
-### `npm run eject`
+## Building for Production
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create an optimized production build:
+```bash
+npm run build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This generates a `build/` directory with minified assets ready for deployment.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Assets
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The project includes:
+- **Logos**: Brand and organizational logos
+- **Papers**: Research papers and publications
+- **Reports**: Technical reports organized by semester (fall-2023, summer-2023, summer-2024, summer-2025, winter-2025)
 
-## Learn More
+## Styling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The site uses a subway-themed design with custom CSS styling in:
+- `src/App.css` - Main application styles
+- `src/style.css` - Component-specific styles
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
 
-### Code Splitting
+Nathan Starkman
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the MIT License.
