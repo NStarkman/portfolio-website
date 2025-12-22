@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "//nstarkman.github.io/portfolio-website/static/css/main.18681662.css",
-    "main.js": "//nstarkman.github.io/portfolio-website/static/js/main.3100bf38.js",
-    "index.html": "//nstarkman.github.io/portfolio-website/index.html",
-    "main.18681662.css.map": "//nstarkman.github.io/portfolio-website/static/css/main.18681662.css.map",
-    "main.3100bf38.js.map": "//nstarkman.github.io/portfolio-website/static/js/main.3100bf38.js.map"
+    "main.css": "/portfolio-website/static/css/main.18681662.css",
+    "main.js": "/portfolio-website/static/js/main.73ace403.js",
+    "index.html": "/portfolio-website/index.html",
+    "main.18681662.css.map": "/portfolio-website/static/css/main.18681662.css.map",
+    "main.73ace403.js.map": "/portfolio-website/static/js/main.73ace403.js.map"
   },
   "entrypoints": [
     "static/css/main.18681662.css",
-    "static/js/main.3100bf38.js"
+    "static/js/main.73ace403.js"
   ]
 }
