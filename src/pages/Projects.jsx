@@ -1,48 +1,48 @@
-import Card from '../components/Card';
+import ProjectPoster from '../components/ProjectPoster';
 import StationWall from '../components/StationWall';
 
-const projectCards = [
+const projects = [
   {
-    title: 'Flutter Dating App Prototype',
-    content: `A mobile dating app prototype developed using Flutter, featuring user authentication,
-                profile creation, grid view of potential matches, and message functionality.`,
-    tags: ['Flutter', 'Dart', 'Mobile App'],
-    link: 'https://github.com/NStarkman/dating-app',
-  },
-  {
-    title: 'Paradux - Python Board Game',
-    content: `A group project focused on the digital adaptation of the classic board game Paradox, developed in Python with a focus on
-                both terminal and GUI-based gameplay.`,
-    tags: ['Python', 'Game Development', 'GUI'],
-    link: 'https://github.com/NStarkman/paradux',
-  },
-  {
-    title: 'Water Quality Dashboard Website',
-    content: `A web-based dashboard for visualizing water quality data in Ontario, utilizing React for the frontend and Java Spring Boot for the backend.`,
-    tags: ['React', 'Java Spring Boot', 'Data Visualization'],
+    title: 'Waterwize',
+    kind: 'Water quality dashboard',
+    description: 'A web dashboard for visualizing water quality data in Ontario lakes, with a React frontend and a Java Spring Boot backend.',
+    tags: ['React', 'Spring Boot', 'Data Viz'],
     link: 'https://github.com/NStarkman/waterwize',
+    poster: { bg: '#00699f', ink: '#ffffff', accent: '#9fdcff', motif: 'waves' },
   },
   {
-    title: 'Personal Portfolio Website',
-    content: `This personal portfolio website showcasing my projects, research, and profile, built with React and React Router for seamless navigation.`,
-    tags: ['React', 'React Router', 'Web Development'],
+    title: 'Dating App',
+    kind: 'Mobile app prototype',
+    description: 'A cross-platform Flutter and Firebase prototype with authentication, profile creation, a grid of potential matches, and real-time chat.',
+    tags: ['Flutter', 'Dart', 'Firebase'],
+    link: 'https://github.com/NStarkman/dating-app',
+    poster: { bg: '#b32078', ink: '#ffffff', accent: '#f8c302', motif: 'match' },
+  },
+  {
+    title: 'Paradux',
+    kind: 'Python board game',
+    description: 'A group project adapting the board game Paradox to Python, playable both in the terminal and through a GUI.',
+    tags: ['Python', 'Game Dev', 'GUI'],
+    link: 'https://github.com/NStarkman/paradux',
+    poster: { bg: '#1d1d1b', ink: '#f3efe6', accent: '#16a753', motif: 'board' },
+  },
+  {
+    title: 'This Website',
+    kind: 'Personal portfolio',
+    description: 'The site you are riding right now: a subway-themed portfolio built with React, React Router, and Vite.',
+    tags: ['React', 'React Router', 'Vite'],
     link: 'https://github.com/NStarkman/portfolio-website',
+    poster: { bg: '#f3efe6', ink: '#1d1d1b', accent: '#0082c9', motif: 'lines' },
   },
 ];
 
 export default function Projects() {
   return (
     <section id="projects">
-      <StationWall name="Code Projects" subtitle="Things I've built" lineNumber={2} />
-      <div className="card-grid">
-        {projectCards.map((card) => (
-          <Card
-            key={card.title}
-            title={card.title}
-            description={card.content}
-            tags={card.tags}
-            links={[{ href: card.link, label: 'View project' }]}
-          />
+      <StationWall name="Code Projects" subtitle="Now showing on the platform wall" lineNumber={2} />
+      <div className="poster-grid">
+        {projects.map((project) => (
+          <ProjectPoster key={project.title} project={project} />
         ))}
       </div>
     </section>

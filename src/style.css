@@ -360,6 +360,10 @@ img {
 /* ==========================================================================
    Route map (Work Reports)
    ========================================================================== */
+.route-wrap {
+  position: relative;
+}
+
 .route {
   margin: 0;
   padding: 0;
@@ -702,7 +706,6 @@ h4.section-heading {
 .strip-map ol::after {
   width: calc((100% - 100% / var(--n)) * var(--frac));
   background: var(--line);
-  transition: width 0.3s ease;
 }
 
 .strip-stop {
@@ -790,24 +793,31 @@ h4.section-heading {
   position: relative;
   flex: 1;
   background: var(--door);
-  animation: 0.6s cubic-bezier(0.65, 0, 0.25, 1) 0.15s forwards;
+  animation: 0.6s cubic-bezier(0.65, 0, 0.25, 1) 0.15s both;
 }
 
 .door-left {
+  /* Resting state is open, so the page is never covered if animations don't run. */
+  transform: translateX(-100%);
+  visibility: hidden;
   border-right: 3px solid var(--door-seal);
   animation-name: doorOpenLeft;
 }
 
 .door-right {
+  transform: translateX(100%);
+  visibility: hidden;
   border-left: 3px solid var(--door-seal);
   animation-name: doorOpenRight;
 }
 
 @keyframes doorOpenLeft {
+  from { transform: none; visibility: visible; }
   to { transform: translateX(-100%); visibility: hidden; }
 }
 
 @keyframes doorOpenRight {
+  from { transform: none; visibility: visible; }
   to { transform: translateX(100%); visibility: hidden; }
 }
 
@@ -969,4 +979,191 @@ h4.section-heading {
   .doors {
     display: none;
   }
+}
+
+/* ==========================================================================
+   Trains (route map and strip map)
+   ========================================================================== */
+.train-body { fill: #d9dcdf; stroke: #1d1d1b; stroke-width: 2; }
+.train-window { fill: #1d2024; }
+.train-stripe { fill: var(--line); }
+.train-light { fill: #ffd34d; }
+
+.route-train {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 9px;
+  width: 22px;
+  height: 44px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.route-train .train {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stop.at-train .stop-dot {
+  background: var(--line);
+}
+
+.stop.at-train .stop-term {
+  color: var(--line-text);
+}
+
+.strip-map .strip-train {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  left: calc(50% / var(--n) + (100% - 100% / var(--n)) * var(--frac));
+  width: 14px;
+  height: 28px;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  pointer-events: none;
+}
+
+.strip-map .strip-train .train {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   Project posters (Line 2)
+   ========================================================================== */
+:root { --frame: #3b3f45; --frame-edge: #5d626a; --screw: #9aa0a6; }
+:root[data-theme='dark'] { --frame: #2b2e33; --frame-edge: #464a52; --screw: #6f747b; }
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Two-by-two or four across, never an orphaned poster on its own row. */
+@media (min-width: 560px) {
+  .poster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1000px) {
+  .poster-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Aluminium ad frame with a screw in each corner. */
+.poster-frame {
+  padding: 12px;
+  background:
+    radial-gradient(circle, var(--screw) 1.8px, transparent 2.4px) top 2px left 2px / 8px 8px no-repeat,
+    radial-gradient(circle, var(--screw) 1.8px, transparent 2.4px) top 2px right 2px / 8px 8px no-repeat,
+    radial-gradient(circle, var(--screw) 1.8px, transparent 2.4px) bottom 2px left 2px / 8px 8px no-repeat,
+    radial-gradient(circle, var(--screw) 1.8px, transparent 2.4px) bottom 2px right 2px / 8px 8px no-repeat,
+    var(--frame);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 2px var(--frame-edge);
+  transition: box-shadow 0.2s;
+}
+
+.poster-frame:hover,
+.poster-frame:focus-within {
+  box-shadow: inset 0 0 0 2px var(--frame-edge), 0 0 0 3px var(--line);
+}
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  min-height: 480px;
+  padding: 18px 20px 16px;
+  background: var(--p-bg);
+  color: var(--p-ink);
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+/* Backlit poster: brightens a touch on hover. */
+.poster-frame:hover .poster {
+  filter: brightness(1.07);
+}
+
+.poster:focus-visible {
+  outline-offset: -6px;
+  outline-color: var(--p-ink);
+}
+
+.poster-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poster-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.poster-top .bullet {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.poster-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.poster-kind {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.poster-title {
+  margin: 0;
+  font-family: var(--font-sign);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 38px);
+  line-height: 1;
+}
+
+.poster-body {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.poster-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poster-tags li {
+  padding: 1px 7px;
+  border: 1.5px solid currentColor;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.poster-cta {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 2px solid currentColor;
+  font-weight: 700;
 }

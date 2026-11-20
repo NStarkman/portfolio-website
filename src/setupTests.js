@@ -1,12 +1,9 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
+// Adds DOM matchers like toBeInTheDocument() and toHaveAttribute() to Vitest's expect.
+import '@testing-library/jest-dom/vitest';
+import { afterEach } from 'vitest';
+import { cleanup } from '@testing-library/react';
 
-// react-router v7 needs TextEncoder/TextDecoder, which CRA's jsdom (Jest 27) doesn't provide.
-import { TextEncoder, TextDecoder } from 'util';
-Object.assign(global, { TextEncoder, TextDecoder });
+afterEach(() => cleanup());
 
 // jsdom doesn't implement scrolling; the app scrolls to top on navigation.
 window.scrollTo = () => {};

@@ -70,3 +70,20 @@ test('footer has the system map and exits', () => {
   expect(screen.getByRole('img', { name: /system map/i })).toBeInTheDocument();
   expect(screen.getAllByRole('link', { name: /download cv/i })[0]).toHaveAttribute('download');
 });
+
+test('projects page shows each project as a linked poster', async () => {
+  const { default: Projects } = await import('./pages/Projects');
+  render(
+    <MemoryRouter>
+      <Projects />
+    </MemoryRouter>
+  );
+  const posters = document.querySelectorAll('a.poster');
+  expect(posters).toHaveLength(4);
+  posters.forEach((poster) => expect(poster.getAttribute('href')).toMatch(/^https:\/\/github\.com\/NStarkman\//));
+});
+
+test('reports route map has a train on the line', () => {
+  renderAt('/reports');
+  expect(document.querySelector('.route-train svg.train')).toBeInTheDocument();
+});

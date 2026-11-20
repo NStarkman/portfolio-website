@@ -1,87 +1,61 @@
 # Personal Portfolio Website
 
-A subway-themed personal portfolio website built with React, showcasing work experience, research, projects, and professional reports.
+A Toronto-subway-themed personal portfolio built with React, React Router and Vite, showcasing work experience, research, projects and co-op work term reports.
+
+Live at https://nstarkman.github.io/portfolio-website/
 
 ## Features
 
-- **Profile**: Personal introduction and background information
-- **Projects**: Portfolio of completed projects with details and links
-- **Research**: Research interests and academic work
-- **Reports**: Technical reports and work documentation organized by semester/period
-- **Subway Navigation**: Custom themed navigation component for intuitive site exploration
+- **Four lines, four sections:** Profile (Line 1), Code Projects (Line 2), Work Reports (Line 3) and Research (Line 4), each with its own TTC line colour and tiled station-wall header.
+- **Arrival board:** an LED-style board that cycles through messages for the current line.
+- **Day and night service:** light and dark themes that follow the system setting and remember the visitor's choice.
+- **Route map:** work reports are stops on Line 3, with a train that rides the line as you scroll.
+- **Strip map:** each report page has a sticky map of its sections; a train tracks your reading position, and clicking a stop jumps to it.
+- **Platform posters:** projects are shown as framed posters on the platform wall.
+- **Doors, footer and 404:** subway doors slide open between pages, the footer has a system map with "exits", and unknown links get a "Not in Service" page.
 
-## Project Structure
+## Project structure
 
 ```
+index.html                 # Vite entry HTML (fonts, theme bootstrap, favicons)
+vite.config.js             # Base path, dev port, build output and Vitest config
+public/                    # Favicons, logos, papers (PDFs) and report images
 src/
-├── components/
-│   ├── Card.jsx                 # Reusable card component
-│   ├── SectionRenderer.jsx      # Dynamic content renderer
-│   ├── SubwayNav.jsx            # Subway-themed navigation
-│   └── reports/                 # Report modules by period
-│       ├── fall-2023.js
-│       ├── summer-2023.js
-│       ├── summer-2024.js
-│       ├── summer-2025.js
-│       └── winter-2025.js
-├── pages/
-│   ├── Profile.jsx
-│   ├── Projects.jsx
-│   ├── Reports.jsx
-│   ├── Research.jsx
-│   └── WorkReportPage.jsx
-├── App.jsx                      # Main application component
-├── App.css                      # Application styles
-└── index.js                     # Entry point
+├── main.jsx               # Router and routes
+├── App.jsx                # Layout: doors, header, page, footer
+├── style.css              # All styles, including light/dark theme tokens
+├── components/            # ArrivalBoard, StationWall, StripMap, Train, ProjectPoster, …
+│   └── reports/           # Work term report content, one file per term
+├── data/                  # Line definitions and the list of reports
+├── pages/                 # Profile, Projects, Reports, Research, WorkReportPage, NotInService
+└── utils/                 # publicUrl (base-path aware asset URLs), heading slugs
 ```
 
-## Getting Started
+## Getting started
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+Requires Node.js 20.19 or newer.
 
-### Installation
-
-1. Clone the repository:
 ```bash
 git clone https://github.com/NStarkman/portfolio-website.git
-cd personal_site
-```
-
-2. Install dependencies:
-```bash
+cd portfolio-website
 npm install
+npm run dev
 ```
 
-3. Start the development server:
-```bash
-npm start
-```
+The dev server prints its URL, normally http://localhost:3000/portfolio-website/.
 
-The site will open at `http://localhost:3000`
+## Scripts
 
-## Building for Production
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Build the site into `build/` |
+| `npm run preview` | Serve the production build locally |
+| `npm test` | Run the tests once with Vitest |
+| `npm run test:watch` | Run the tests in watch mode |
+| `npm run deploy` | Build and publish `build/` to the `gh-pages` branch |
 
-Create an optimized production build:
-```bash
-npm run build
-```
-
-This generates a `build/` directory with minified assets ready for deployment.
-
-## Assets
-
-The project includes:
-- **Logos**: Brand and organizational logos
-- **Papers**: Research papers and publications
-- **Reports**: Technical reports organized by semester (fall-2023, summer-2023, summer-2024, summer-2025, winter-2025)
-
-## Styling
-
-The site uses a subway-themed design with custom CSS styling in:
-- `src/App.css` - Main application styles
-- `src/style.css` - Component-specific styles
+Files in `public/` are referenced from code through `publicUrl()` so they resolve against the `/portfolio-website/` base path.
 
 ## Author
 
