@@ -8,6 +8,7 @@ const MESSAGES = {
   projects: ['Waterwize', 'Paradux', 'Flutter dating app', 'This very website'],
   reports: [...REPORTS].reverse().map((r) => `${r.company} · ${r.term}`),
   research: ['CI/CD platform comparison', 'Hemangiosarcoma ML model'],
+  now: ['Open to new roles', 'M.S. Computer Science · NYU', 'Recession forecasting · in progress', 'Next stop · under construction'],
 };
 
 // Right-hand side of the board: the first message is "boarding", the rest are counting down.

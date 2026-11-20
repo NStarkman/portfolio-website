@@ -87,3 +87,21 @@ test('reports route map has a train on the line', () => {
   renderAt('/reports');
   expect(document.querySelector('.route-train svg.train')).toBeInTheDocument();
 });
+
+test('Line 5 "Now" page shows the service notice and recent stops', async () => {
+  const { default: Now } = await import('./pages/Now');
+  render(
+    <MemoryRouter initialEntries={['/now']}>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="now" element={<Now />} />
+        </Route>
+      </Routes>
+    </MemoryRouter>
+  );
+  expect(screen.getByRole('heading', { level: 1, name: 'Now' })).toBeInTheDocument();
+  const nav = screen.getByRole('navigation', { name: 'Sections' });
+  expect(nav.querySelector('[aria-current="page"]')).toHaveTextContent('Now');
+  expect(screen.getByText(/open to roles in software engineering/i)).toBeInTheDocument();
+  expect(document.querySelector('.stop.future .stop-name')).toHaveTextContent('Your Team?');
+});

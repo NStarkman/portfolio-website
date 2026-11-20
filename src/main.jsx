@@ -8,6 +8,7 @@ import Reports from './pages/Reports';
 import Research from './pages/Research';
 import WorkReportPage from './pages/WorkReportPage';
 import NotInService from './pages/NotInService';
+import Now from './pages/Now';
 import { REPORTS } from './data/reports';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +23,7 @@ root.render(
           <Route path="projects" element={<Projects />} />
           <Route path="reports" element={<Reports />} />
           <Route path="research" element={<Research />} />
+          <Route path="now" element={<Now />} />
           {REPORTS.map((report) => (
             <Route
               key={report.slug}

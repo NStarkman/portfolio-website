@@ -15,12 +15,13 @@ const TRACKS = [
   { n: 2, d: 'M24 75 H150', end: [24, 75] },
   { n: 3, d: 'M155 75 L200 120 H276', end: [276, 120] },
   { n: 4, d: 'M150 75 H276', end: [276, 75] },
+  { n: 5, d: 'M145 75 L100 120 H24', end: [24, 120] },
 ];
 
 function MiniMap() {
   return (
     <svg className="system-map-svg" viewBox="0 0 300 150" role="img" aria-labelledby="system-map-title">
-      <title id="system-map-title">System map: Lines 1 to 4 meet at a single interchange</title>
+      <title id="system-map-title">System map: Lines 1 to 5 meet at a single interchange</title>
       {TRACKS.map((t) => (
         <path key={t.n} d={t.d} className={`map-track line-${t.n}`} />
       ))}

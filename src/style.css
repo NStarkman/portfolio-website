@@ -36,11 +36,13 @@
 .line-2 { --line: #16a753; --line-on: #ffffff; --line-text: #0f7a3c; }
 .line-3 { --line: #0082c9; --line-on: #ffffff; --line-text: #0070ad; }
 .line-4 { --line: #b32078; --line-on: #ffffff; --line-text: #a01c6b; }
+.line-5 { --line: #f26f21; --line-on: #ffffff; --line-text: #b04a0a; }
 
 :root[data-theme='dark'] .line-1 { --line-text: #f8c302; }
 :root[data-theme='dark'] .line-2 { --line-text: #3fcf7c; }
 :root[data-theme='dark'] .line-3 { --line-text: #4bb4ee; }
 :root[data-theme='dark'] .line-4 { --line-text: #e45dac; }
+:root[data-theme='dark'] .line-5 { --line-text: #ff9652; }
 
 /* ==========================================================================
    Base
@@ -1166,4 +1168,81 @@ h4.section-heading {
   padding-top: 10px;
   border-top: 2px solid currentColor;
   font-weight: 700;
+}
+
+/* ==========================================================================
+   Line 5 · Now
+   ========================================================================== */
+.service-notice {
+  margin: 0 0 40px;
+  padding: 18px 22px;
+  background: color-mix(in srgb, var(--line) 12%, var(--card));
+  border: 2px solid var(--line);
+  border-left-width: 10px;
+}
+
+.service-notice-kicker {
+  margin: 0 0 6px;
+  color: var(--line-text);
+  font-family: var(--font-sign);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-notice-text {
+  margin: 0 0 14px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.service-notice-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.now-heading {
+  margin: 0 0 22px;
+  font-family: var(--font-sign);
+  font-weight: 400;
+  font-size: 24px;
+}
+
+/* A route map without links: no arrow after the description. */
+.route-static .stop-role::after {
+  content: none;
+}
+
+.route-static .stop-role {
+  max-width: 620px;
+}
+
+/* Track still under construction on the way to the next stop. */
+.stop.to-future::before {
+  background: repeating-linear-gradient(to bottom, var(--line) 0 8px, transparent 8px 14px);
+}
+
+.stop.future .stop-dot {
+  border-style: dashed;
+  background: var(--bg);
+}
+
+.stop.future .stop-name {
+  color: var(--mute);
+}
+
+.parked-train {
+  position: absolute;
+  z-index: 3;
+  left: 9px;
+  top: -6px;
+  width: 22px;
+  height: 44px;
+}
+
+.parked-train .train {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

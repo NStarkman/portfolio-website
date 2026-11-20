@@ -20,6 +20,7 @@ const profileCards = [
     title: 'Currently Working On',
     content: `Music and economic recession predictive analytics at NYU: testing whether music-chart, lyric, and sentiment features add predictive value alongside traditional economic indicators when forecasting recessions.`,
     tags: ['Predictive Analytics', 'NYU', '2026'],
+    links: [{ href: '/now', label: 'Ride Line 5 · Now' }],
   },
   {
     title: 'Experience',
