@@ -1,26 +1,33 @@
+import { useEffect } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import SubwayNav from './components/SubwayNav';
+import Doors from './components/Doors';
+import SystemMap from './components/SystemMap';
+import { isKnownPath, lineById, sectionFromPath } from './data/lines';
+import { REPORTS, reportBySlug } from './data/reports';
 import './style.css';
 
+const REPORT_SLUGS = REPORTS.map((r) => r.slug);
+
 function App() {
-  const location = useLocation();
-  
-  // Determine active section from current path
-  const getActiveSection = () => {
-    const path = location.pathname;
-    if (path === '/' || path.startsWith('/profile')) return 'profile';
-    if (path.startsWith('/projects')) return 'projects';
-    if (path.startsWith('/reports') || path.startsWith('/wtr')) return 'reports';
-    if (path.startsWith('/research')) return 'research';
-    return 'profile';
-  };
+  const { pathname } = useLocation();
+  const notInService = !isKnownPath(pathname, REPORT_SLUGS);
+  const line = lineById(sectionFromPath(pathname));
+  const report = pathname.startsWith('/wtr/') ? reportBySlug(pathname.slice('/wtr/'.length)) : undefined;
+
+  // Hash routing doesn't reset scroll, so start each new page at the top.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
-    <div className="App">
-      <SubwayNav activeSection={getActiveSection()} />
-      <div className="container">
+    <div className={`App ${notInService ? 'line-0' : `line-${line.number}`}`}>
+      <Doors key={pathname} />
+      <SubwayNav activeLine={line} report={report} notInService={notInService} />
+      <main className="container" key={pathname}>
         <Outlet />
-      </div>
+      </main>
+      <SystemMap />
     </div>
   );
 }

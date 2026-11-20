@@ -1,27 +1,33 @@
- import YouTube from "react-youtube";
+import YouTube from "react-youtube";
+import { headingId } from "../utils/slug";
+import { publicUrl } from "../utils/publicUrl";
 
 export default function SectionRenderer({ section }) {
   switch (section.type) {
     case 'text':
       return (
-        <p style={{ whiteSpace: 'pre-wrap' }} className="section-text">
+        <p className="section-text">
           {section.content}
         </p>
       );
 
-    case 'heading':
+    case 'heading': {
       const HeadingTag = `h${section.level || 4}`;
       return (
-        <HeadingTag className="section-heading">
+        <HeadingTag
+          className="section-heading"
+          id={(section.level || 4) === 3 ? headingId(section.content) : undefined}
+        >
           {section.content}
         </HeadingTag>
       );
+    }
 
     case 'image':
       return (
         <div className="section-image-wrapper">
           <img
-            src={section.src}
+            src={publicUrl(section.src)}
             alt={section.alt || 'Report Image'}
             className="wtr-image"
           />
@@ -31,33 +37,34 @@ export default function SectionRenderer({ section }) {
         </div>
       );
     
-    case 'video':
-      const options = {
-        height: '390',
-        width: '640',
+    case 'video': {
+      const opts = {
+        height: '100%',
+        width: '100%',
         playerVars: {
-          autoplay: 1,
+          autoplay: 0,
           controls: 1,
         },
       };
       return (
         <div className="video-container">
           <div className="video-wrapper">
-             <YouTube videoId={section.src} options={options}/>
+            <YouTube videoId={section.src} opts={opts} />
           </div>
         </div>
-      )
+      );
+    }
     case 'image-grid':
       return (
         <div className="image-grid">
           {section.images?.map((img, index) => (
             <div key={index} className="grid-item">
               <img
-                src={img.src}
+                src={publicUrl(img.src)}
                 alt={img.alt || `Grid Image ${index + 1}`}
                 className="grid-image"
               />
-              <h4 className='image-header'>{img.alt}</h4>
+              <p className="image-header">{img.alt}</p>
               {img.caption && (
                 <p className="image-caption">{img.caption}</p>
               )}
@@ -69,7 +76,7 @@ export default function SectionRenderer({ section }) {
       return (
         <div className="learning-goal-section">
           <h4 className="learning-goal-title">{section.goal}</h4>
-          <p className="learning-goal-result" style={{ whiteSpace: 'pre-wrap' }}>
+          <p className="learning-goal-result">
             {section.result}
           </p>
         </div>

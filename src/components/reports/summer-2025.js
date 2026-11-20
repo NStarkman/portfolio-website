@@ -1,5 +1,5 @@
 export const wtr5 = {
-        logo: '/logos/creyos.svg',
+        logo: 'logos/creyos.svg',
         title: "Creyos - Software Engineering Intern",
         sections: [
                 {
@@ -10,7 +10,7 @@ export const wtr5 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/creyos-header.png',
+                src: 'reports/winter-2025/creyos-header.png',
                 alt: 'Creyos Team',
                 },
                 {
@@ -59,7 +59,7 @@ export const wtr5 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2025/cloudflare.png',
+                src: 'reports/summer-2025/cloudflare.png',
                 alt: 'Cloudflare Logo',
                 },
                 {
@@ -73,7 +73,7 @@ export const wtr5 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2025/csp-header.png',
+                src: 'reports/summer-2025/csp-header.png',
                 alt: 'CSP Header Issues',
                 },
                 {
@@ -87,7 +87,7 @@ export const wtr5 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2025/settings.png',
+                src: 'reports/summer-2025/settings.png',
                 alt: 'Application Settings Configuration',
                 },
                 {
@@ -101,7 +101,7 @@ export const wtr5 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2025/bug-finding.png',
+                src: 'reports/summer-2025/bug-finding.png',
                 alt: 'Bug Finding and Resolution',
                 },
                 {

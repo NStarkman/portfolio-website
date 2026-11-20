@@ -1,5 +1,5 @@
 export const wtr3 = {
-        logo: '/logos/kenna.svg',
+        logo: 'logos/kenna.svg',
         title: "Kenna - Student Application Developer",
         sections: [
                 {
@@ -10,7 +10,7 @@ export const wtr3 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2024/image1.png',
+                src: 'reports/summer-2024/image1.png',
                 alt: 'Customer First Thinking',
                 caption: 'Many of the Kenna Staff during our Summer Activity Day'
                 },
@@ -65,7 +65,7 @@ export const wtr3 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2024/edit-history.png',
+                src: 'reports/summer-2024/edit-history.png',
                 alt: 'Edit History Page',
                 caption: 'This was one of the Edit History pages I developed'
                 },
@@ -80,7 +80,7 @@ export const wtr3 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2024/payment-manager.png',
+                src: 'reports/summer-2024/payment-manager.png',
                 alt: 'Payment Manager Landing Page',
                 caption: 'This was the landing page for payment manager, from which you can access pages where I made many changes'
                 },
@@ -95,7 +95,7 @@ export const wtr3 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2024/web-job-requests.png',
+                src: 'reports/summer-2024/web-job-requests.png',
                 alt: 'Web Job Request Page',
                 caption: 'The Web Job Request page I created'
                 },
@@ -112,12 +112,12 @@ export const wtr3 = {
                 type: 'image-grid',
                 images: [
                         {
-                        src: '/reports/summer-2024/file-manager-landing.png',
+                        src: 'reports/summer-2024/file-manager-landing.png',
                         alt: 'File Manager Landing Page',
                         caption: 'The File Manager Landing Page with filterable dropdown for different file types (ARP, SAP, ARP-AK, OUT)'
                         },
                         {
-                        src: '/reports/summer-2024/arp-file-page.png',
+                        src: 'reports/summer-2024/arp-file-page.png',
                         alt: 'ARP File Landing Page',
                         caption: 'The ARP File Landing Page showing selected file and all associated checks with submission options'
                         }

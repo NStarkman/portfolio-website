@@ -1,5 +1,5 @@
 export const wtr4 = {
-        logo: '/logos/creyos.svg',
+        logo: 'logos/creyos.svg',
         title: "Creyos - Software Engineering Intern",
         sections: [
                 {
@@ -10,7 +10,7 @@ export const wtr4 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/creyos-header.png',
+                src: 'reports/winter-2025/creyos-header.png',
                 alt: 'Creyos Team',
                 },
                 {
@@ -59,7 +59,7 @@ export const wtr4 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/session-timeout.png',
+                src: 'reports/winter-2025/session-timeout.png',
                 alt: 'Session Timeout Implementation',
                 },
                 {
@@ -73,7 +73,7 @@ export const wtr4 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/version-endpoint.png',
+                src: 'reports/winter-2025/version-endpoint.png',
                 alt: 'Version Endpoint',
                 },
                 {
@@ -87,7 +87,7 @@ export const wtr4 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/coveralls.png',
+                src: 'reports/winter-2025/coveralls.png',
                 alt: 'Coveralls Configuration',
                 },
                 {
@@ -101,7 +101,7 @@ export const wtr4 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/snyk.png',
+                src: 'reports/winter-2025/snyk.png',
                 alt: 'SNYK Security Analysis',
                 },
                 {
@@ -115,7 +115,7 @@ export const wtr4 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/winter-2025/security-headers.png',
+                src: 'reports/winter-2025/security-headers.png',
                 alt: 'Security Headers Configuration',                },
                 {
                 type: 'text',

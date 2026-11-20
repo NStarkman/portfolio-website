@@ -1,36 +1,33 @@
 import { Link } from 'react-router-dom';
+import { publicUrl } from '../utils/publicUrl';
 
-export default function Card({ title, description, tags, link, isResearch, isProject, isCV, icon1Link, icon1Url, icon2Link, icon2Url }) {
-  const isInternalLink = link && (link.startsWith('/') || link.startsWith('#'));
-  
+function CardLink({ href, label, download }) {
+  const isInternal = href.startsWith('/');
+  if (isInternal) {
+    return <Link to={href} className="text-link">{label} →</Link>;
+  }
   return (
-    <div className="card">
+    <a href={publicUrl(href)} className="text-link" target="_blank" rel="noopener noreferrer" download={download || undefined}>
+      {label} {download ? '↓' : '↗'}
+    </a>
+  );
+}
+
+export default function Card({ title, description, tags, links = [] }) {
+  return (
+    <article className="card">
       <h3>{title}</h3>
       {description && <p>{description}</p>}
       {tags && (
-        <div className="card-tags">
-          {tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+        <ul className="card-tags" aria-label="Tags">
+          {tags.map((tag) => <li key={tag} className="tag">{tag}</li>)}
+        </ul>
+      )}
+      {links.length > 0 && (
+        <div className="card-links">
+          {links.map((link) => <CardLink key={link.href} {...link} />)}
         </div>
       )}
-      {link && isInternalLink ? (
-        <Link to={link} className="link-btn">
-          {isProject ? 'View Project →' : isResearch ? 'Read Paper →' : isCV ? 'Download CV →': 'Read Report →'}
-        </Link>
-      ) : link ? (
-        <a href={link} className="link-btn" target="_blank" rel="noopener noreferrer">
-          {isProject ? 'View Project →' : isResearch ? 'Read Paper →' : isCV ? 'Download CV →': 'Read Report →'}
-        </a>
-      ) : null}
-      {icon1Link && icon2Link && (
-        <div className="icon-links">
-          <a href={icon1Url} target="_blank" rel="noopener noreferrer">
-            <img src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${icon1Link}.svg`} alt={icon1Link} className="icon" />
-          </a>
-          <a href={icon2Url} target="_blank" rel="noopener noreferrer">
-            <img src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${icon2Link}.svg`} alt={icon2Link} className="icon" />
-          </a>
-        </div>
-      )}
-    </div>
+    </article>
   );
 }

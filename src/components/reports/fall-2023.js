@@ -1,6 +1,6 @@
 
 export const wtr2 = {
-        logo: '/logos/kenna.svg',
+        logo: 'logos/kenna.svg',
         title: "Kenna - Student Application Developer",
         sections: [
                 {
@@ -78,7 +78,7 @@ export const wtr2 = {
                 content: `My first task was a part of the Vision Rewards site for BASF. My goal was to develop a cite that allowed specific users (some Kenna and BASF employees) to be able to access specific accounts for assistance or other purposes. The goal was to have the user sign in regularly, and in a drop down menu, be able to select Act as User, which would take them to this site. There, the user would put in the name of the person they would want to "Act As," and a type ahead drop down would appear with the possible options. When selected, the page would redirect to the home page of that user, as if they had just logged on. The React of this page was very interesting, but the real challenge was the routing and back end. Ensuring that the route was secure in allowing only the correct users to access it, along with ensuring that it was only accessible to certain users was a challenge. However, with the assistance of others, I was able to make this site work, and merged it to release!`                },
                 {
                 type: 'image',
-                src: '/reports/fall-2023/image1.png',
+                src: 'reports/fall-2023/image1.png',
                 alt: 'Act-As-User page',
                 caption: 'This was the Act As User page I developed'  
                 },
@@ -97,7 +97,7 @@ export const wtr2 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/fall-2023/image2.png',
+                src: 'reports/fall-2023/image2.png',
                 alt: 'Help Request Main page',
                 caption: 'This was the page that allowed users to view their created Help Requests.'  
                 },
@@ -105,22 +105,22 @@ export const wtr2 = {
                 type: 'image-grid',
                 images: [
                         {
-                        src: '/reports/fall-2023/image3.png',
+                        src: 'reports/fall-2023/image3.png',
                         alt: 'Create Help Request',
                         caption: 'This was the popup used to create the help requests and submit them to the database/back-end. It was one of the first things I made for this project.'
                         },
                         {
-                        src: '/reports/fall-2023/image4.png',
+                        src: 'reports/fall-2023/image4.png',
                         alt: 'View Single Request',
                         caption: 'The user had to be able to select a help request from the grid and view all the data assigned to it, including attachments, description, dates, status, and more'
                         },
                         {
-                        src: '/reports/fall-2023/image5.png',
+                        src: 'reports/fall-2023/image5.png',
                         alt: 'Edit Single Request',
                         caption: 'By pressing the edit button that exists in the toolbar, the user was able to edit all aspects of their help request. (Priority, description, attachments) If the request had attachments, they were able to add more or remove the ones they had already created.'
                         },
                         {
-                        src: '/reports/fall-2023/image6.png',
+                        src: 'reports/fall-2023/image6.png',
                         alt: 'Create Comments',
                         caption: 'By switching to the comment tab, the user was able to post comments on the help request, with whether internally or externally. The idea was that once implemented, the person assigned to assist the requester could comment any questions or questions they have about the request.'
                         }
@@ -129,7 +129,7 @@ export const wtr2 = {
                 {
                 type: 'heading',
                 level: 3,
-                content: 'skills required and learned'
+                content: 'Skills Required and Learned'
                 },
                 {
                 type: 'text',

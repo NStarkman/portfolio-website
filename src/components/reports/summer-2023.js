@@ -1,6 +1,6 @@
 
 export const wtr1 = {
-        logo: '/logos/OMAFRA.svg',
+        logo: 'logos/OMAFRA.svg',
         title: "OMAFRA - Data Visualization and modelling Co-op",
         sections: [
                 {
@@ -11,7 +11,7 @@ export const wtr1 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2023/image1.jpg',
+                src: 'reports/summer-2023/image1.jpg',
                 alt: 'Field Trip',
                 caption: 'One of the many field trips taken during my time at OMAFRA'
                 },
@@ -68,7 +68,7 @@ export const wtr1 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2023/image2.png',
+                src: 'reports/summer-2023/image2.png',
                 alt: 'Website Weekly Report',
                 caption: 'One example of the title screen of the weekly VCR Reports'  
                 },
@@ -78,7 +78,7 @@ export const wtr1 = {
                 },
                 {
                 type: 'image',
-                src: '/reports/summer-2023/image3.png',
+                src: 'reports/summer-2023/image3.png',
                 alt: 'PowerBI Dashboard',
                 caption: 'The Power BI VCR Dashboard I managed for most of the summer'  
                 },
